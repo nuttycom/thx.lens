@@ -1,0 +1,14 @@
+{
+  "name": "thx.lens",
+  "url": "https://github.com/nuttycom/thx.lens",
+  "license": "MIT",
+  "classPath": "src",
+  "tags": ["thx", "optic", "lens", "fp"],
+  "description": "A port of the functionaljava optics library",
+  "releasenote": "Initial Release",
+  "version": "0.0.1",
+  "contributors": ["nuttycom"],
+  "dependencies": {
+    "thx.core": ""
+  }
+}
