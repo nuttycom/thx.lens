@@ -11,7 +11,7 @@ class PLens<S, T, A, B> {
     this.set = set;
   }
 
-  function modify(f: A -> B): S -> T {
+  public function modify(f: A -> B): S -> T {
     return function(s: S) {
       return this.set(f(this.get(s)))(s);
     };
@@ -25,14 +25,6 @@ class PLenses {
 }
 
 class PLensExtensions {
-  public static function modifyFunctionF<S, T, A, B, C>(l: PLens<S, T, A, B>, f: A -> (C -> B)): S -> (C -> T) {
-    return function(s: S) {
-      function set(b: B): T return l.set(b)(s);
-      var get: C -> B = f(l.get(s));
-      return set.compose(get);
-    };
-  }
-
   public static function compose<S, T, A, B, C, D>(stab: PLens<S, T, A, B>, abcd: PLens<A, B, C, D>) {
     return new ComposePLens(stab, abcd);
   }
